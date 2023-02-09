@@ -21,7 +21,7 @@ def verify_otp():
 
     if username == 'verify' and password == '12345':   
         account_sid = 'AC68033d0260e4c2f3ac073784ef67248b'
-        auth_token = '27ee99a383d92894c3875228a7fab09c'
+        auth_token = '9f531394bfe28f60a1ffffa6c1fbd955'
         client = Client(account_sid, auth_token)
 
         verification = client.verify \
@@ -36,7 +36,7 @@ def verify_otp():
 
 
 
-app.route('/otp', methods = ['POST'])
+@app.route('/otp', methods = ['POST'])
 def get_otp():
     print('Verification')
     received_otp = request.form['received_otp']
@@ -44,7 +44,7 @@ def get_otp():
 
 
     account_sid = 'AC68033d0260e4c2f3ac073784ef67248b'
-    auth_token = '27ee99a383d92894c3875228a7fab09c'
+    auth_token = '9f531394bfe28f60a1ffffa6c1fbd955'
     client = Client(account_sid, auth_token)
 
     verification_check = client.verify \
@@ -56,7 +56,7 @@ def get_otp():
     if verification_check.status == 'pending':
         return "Entered OTP is wrong"
     else:
-        return render_template('https://collaborative-notepad.herokuapp.com/')
+        return render_template('https://project-c272.onrender.com/')
 
 
 
